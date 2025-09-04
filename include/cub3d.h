@@ -19,15 +19,24 @@ typedef struct s_map
 	int		map_height;
 	int		max_len;
 	char	**map;
-
-
 }	t_map;
+
+typedef struct s_map_info
+{
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	int		Floor[3];
+	int		Ceiling[3];
+	int		stop_trimming;
+}	t_map_info;
 
 
 
 //-------------PARSING---------------//
 int		check_file_name(char *name);
-void	read_map(char *map, t_list **lst);
+void read_map(char *filename, t_list **lst, t_map_info *map_info);
 void	allocate_and_fill_map(t_map *game, t_list *lst);
 void	print_map(char **map); //remove later
 
