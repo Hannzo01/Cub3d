@@ -1,7 +1,7 @@
 #ifndef CUB3D_H
 #define CUB3D_H
 
-# include "../gnll/get_next_line.h"
+# include "../gnl/get_next_line.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
