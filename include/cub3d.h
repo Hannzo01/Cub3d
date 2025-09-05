@@ -1,7 +1,7 @@
 #ifndef CUB3D_H
 #define CUB3D_H
 
-# include "../gnl/get_next_line.h"
+# include "../gnll/get_next_line.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -27,8 +27,8 @@ typedef struct s_map_info
 	char	*SO;
 	char	*WE;
 	char	*EA;
-	int		Floor[3];
-	int		Ceiling[3];
+	int		floor[3];
+	int		ceiling[3];
 	int		stop_trimming;
 }	t_map_info;
 

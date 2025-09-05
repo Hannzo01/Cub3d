@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror 
 SRCS = main.c parsing/check_file_name.c parsing/utils.c \
 			parsing/lst_utils.c parsing/map_utils.c \
-			gnl/get_next_line.c gnl/get_next_line_utils.c
+			gnll/get_next_line.c gnll/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

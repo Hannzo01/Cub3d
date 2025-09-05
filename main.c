@@ -4,21 +4,30 @@
 
 void	initialize_map_info(t_map_info *map_info)
 {
+	int	i;
+
+	i = 0;
 	map_info->NO = NULL;
 	map_info->SO = NULL;
 	map_info->WE = NULL;
 	map_info->EA = NULL;
 	map_info->stop_trimming = 0;
+	while (i < 3)
+	{
+		map_info->floor[i] = -1;
+		map_info->ceiling[i] = -1;
+		i++;
+	}
 }
 
 int main(int argc, char *argv[])
 {
 	t_list *lst;
 	t_map *game;
-	t_map_info *map_info;
+	t_map_info map_info;
 	
 
-	initialize_map_info(map_info);
+	initialize_map_info(&map_info);
 	lst = NULL;
 	game = malloc(sizeof(t_map));
 	if (game == NULL)
