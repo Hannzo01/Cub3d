@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:46 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:42:01 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:47:34 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	check_if_metabeta(char *line, t_map *game)
 	else if (ft_strncmp(element, "C ", 2) == 0)
 		check_and_fill_color("C", line, game);
 	else
-		print_error_and_exit("Error\nMissing or Unrecognized element in \
-			config\n", game);
+		print_error_and_exit(\
+			"Error\nMissing or Unrecognized element in config\n", game);
 }
 
 void	is_fully_filled(t_map *game)

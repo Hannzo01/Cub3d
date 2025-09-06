@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:38:06 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:28:29 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_map
 	int				p_x;
 	int				p_y;
 	int				invalid;
-	int				first_line_map;
 	t_gc			*gc;
 }					t_map;
 

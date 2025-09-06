@@ -6,11 +6,12 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:48 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:08:37 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:43:58 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
 
 void	read_map(char *filename, t_list **lst, t_map *game)
 {
@@ -49,6 +50,7 @@ void	read_map(char *filename, t_list **lst, t_map *game)
 		}
 		line = get_next_line(fd);
 	}
+	// said_check(lst);
 	close(fd);
 	get_next_line(-1); // clean static var d gnl
 }

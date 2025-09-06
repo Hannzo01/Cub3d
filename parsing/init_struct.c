@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:26 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:41:11 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:28:43 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	initialize_game(t_map *game)
 
 	i = 0;
 	game->p_found = 0;
-	game->first_line_map = 0;
 	game->p_x = 0;
 	game->p_y = 0;
 	game->invalid = 0;

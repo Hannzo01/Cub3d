@@ -6,25 +6,11 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:16 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:43:11 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:28:19 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-int	emptiness(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ' && str[i] != '\t')
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	valid_chars(t_map *game)
 {
@@ -33,12 +19,8 @@ int	valid_chars(t_map *game)
 	i = 0;
 	while (game->map[i] != NULL)
 	{
-		if (emptiness(game->map[i]) == 1)
-			game->first_line_map = 1;
 		if (is_valid_line(game->map[i], game) == -1)
 			return (-1);
-		// if (check_for_empty_line(game->map[i]) == -1 && game->first_line_map == 1)
-		// 	return (-1);
 		i++;
 	}
 	if (game->p_found == 0)

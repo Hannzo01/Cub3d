@@ -1,7 +1,7 @@
 NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g #remove
-SRCS = main.c parsing/check_file_name.c parsing/utils.c \
+SRCS = cub3d.c parsing/check_file_name.c parsing/utils.c \
 			parsing/lst_utils.c \
 			gnl/get_next_line.c gnl/get_next_line_utils.c \
 			parsing/split.c parsing/flood_fill.c parsing/init_struct.c \
