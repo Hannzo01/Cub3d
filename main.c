@@ -1,48 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/09/06 18:37:33 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/cub3d.h"
-#include  <string.h>
 
-
-void	initialize_map_info(t_map_info *map_info)
+static void	parsing(char *input, t_map *game, t_list **lst)
 {
-	int	i;
-
-	i = 0;
-	map_info->NO = NULL;
-	map_info->SO = NULL;
-	map_info->WE = NULL;
-	map_info->EA = NULL;
-	map_info->stop_trimming = 0;
-	while (i < 3)
-	{
-		map_info->floor[i] = -1;
-		map_info->ceiling[i] = -1;
-		i++;
-	}
+	check_file_name(input, game);
+	read_map(input, lst, game);
+	map_size(*lst, game);
+	allocate_and_fill_map(game, *lst);
+	validate_map(game);
+	printf("----PARSING IS DONE----\n");
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	t_list *lst;
-	t_map *game;
-	t_map_info map_info;
-	
+	t_list	*lst;
+	t_map	*game;
 
-	initialize_map_info(&map_info);
 	lst = NULL;
 	game = malloc(sizeof(t_map));
 	if (game == NULL)
 		return (1);
-
+	initialize_game(game);
 	if (argc == 2)
 	{
-		if (check_file_name(argv[1]) == 1)
-			return (ft_putstr_fd("Invalid file name\n", 2), 1);
-		read_map(argv[1], &lst, map_info); 
-		map_size(lst, game); //need to free linked list
-		allocate_and_fill_map(game, lst);
-		print_map(game->map);
+		parsing(argv[1], game, &lst);
+		gc_free(game->gc);
+		game->gc = NULL;
+		free(game);
 	}
 	else
-		return (ft_putstr_fd("Enter a valid input :)\n", 2), 1);
+		return (ft_putstr_fd("Enter a valid input\n", 2), 1);
 	return (0);
 }

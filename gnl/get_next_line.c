@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/05 10:13:21 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/06 16:55:21 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,13 @@ char	*get_next_line(int fd)
 	static char	*store;
 	char		*line;
 
-	if (fd < 0)
+	if (fd == -1)
+	{
+		free(store);
+		store = NULL;
+		return (NULL);
+	}
+	if (fd <= 0)
 		return (NULL);
 	store = get_one_line(fd, store);
 	line = remove_after_newline(store);
