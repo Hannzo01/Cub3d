@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:28:29 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:21:23 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "mlx.h"
+# include <string.h>
+
 
 typedef struct s_gc
 {

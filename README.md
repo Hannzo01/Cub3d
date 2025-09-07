@@ -36,3 +36,16 @@ C # F:
 	// ready to render
 
 	
+
+	-----MLX_PART-----
+
+	The memory is one long array of bytes representing all pixels row by row.
+
+
+	~RENDERING~ draw everything on screen
+	
+	
+Cell (1,1) in map → Pixels (64,64) to (127,127) on screen
+├── pixel_x_start = 64, pixel_y_start = 64
+├── pixel_x goes from 64 to 127
+└── pixel_y goes from 64 to 127

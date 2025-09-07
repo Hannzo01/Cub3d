@@ -6,12 +6,11 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:48 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:43:58 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:45:26 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
 
 void	read_map(char *filename, t_list **lst, t_map *game)
 {
@@ -30,7 +29,7 @@ void	read_map(char *filename, t_list **lst, t_map *game)
 		free(line);
 		line = line_gc;
 		len = ft_strlen(line);
-		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r')) //ft_strtrim from libft 
 		{
 			line[len - 1] = '\0';
 			len--;
@@ -50,7 +49,6 @@ void	read_map(char *filename, t_list **lst, t_map *game)
 		}
 		line = get_next_line(fd);
 	}
-	// said_check(lst);
 	close(fd);
 	get_next_line(-1); // clean static var d gnl
 }

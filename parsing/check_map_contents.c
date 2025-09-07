@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:16 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:28:19 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:53:30 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	valid_chars(t_map *game)
 	return (1);
 }
 
+// hnaya use ft_strchr to better code 
 int	is_valid_line(char *str, t_map *game)
 {
 	int	i;
@@ -38,10 +39,10 @@ int	is_valid_line(char *str, t_map *game)
 		if (str[i] == 'N' || str[i] == 'E' || str[i] == 'W' || str[i] == 'S')
 		{
 			if (game->p_found == 1)
-				return (-1);
+				return (-1); // instead of return, print multiple player
 			game->p_found = 1;
 		}
-		if (str[i] != 'N' && str[i] != 'E' && str[i] != 'W' && str[i] != 'S'
+		if (str[i] != 'N' && str[i] != 'E' && str[i] != 'W' && str[i] != 'S' //ft_strchr
 			&& str[i] != '0' && str[i] != '1' && str[i] != ' ')
 			return (-1);
 		i++;
@@ -57,7 +58,7 @@ int	is_surrounded(t_map *game)
 	if (is_wall(game->map[0]) == 1 && is_wall(game->map[game->height - 1]) == 1)
 	{
 		while (game->map[i] != NULL)
-		{
+		{//ft_strchr
 			if (!(game->map[i][0] == '1' || game->map[i][0] == ' ')
 				|| !(game->map[i][game->max_len - 1] == '1'
 					|| game->map[i][game->max_len - 1] == ' '))
@@ -94,7 +95,7 @@ void	save_player_pos(t_map *game)
 	{
 		j = 0;
 		while (game->map[i][j] != '\0')
-		{
+		{ //ft_strchr
 			if (game->map[i][j] == 'N' || game->map[i][j] == 'E'
 				|| game->map[i][j] == 'W' || game->map[i][j] == 'S')
 			{

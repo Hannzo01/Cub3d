@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:46:19 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:09:42 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ static void	parsing(char *input, t_map *game, t_list **lst)
 	validate_map(game);
 	printf("----PARSING IS DONE----\n");
 }
-
+static void ft_free(t_map *game)
+{
+	gc_free(game->gc);
+	game->gc = NULL;
+	free(game);
+}
 int	main(int argc, char *argv[])
 {
 	t_list	*lst;
@@ -35,9 +40,7 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		parsing(argv[1], game, &lst);
-		gc_free(game->gc);
-		game->gc = NULL;
-		free(game);
+		ft_free(game);
 	}
 	else
 		return (ft_putstr_fd("Enter a valid input\n", 2), 1);
