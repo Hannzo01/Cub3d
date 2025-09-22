@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 17:02:21 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/07 14:23:22 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:16:24 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,4 +194,4 @@ int main()
 
     mlx_hook(cub3d.window, 17, 0, handler, &cub3d);
     mlx_loop(cub3d.mlx);
-}
+}void

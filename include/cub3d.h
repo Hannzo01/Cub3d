@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 20:04:54 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/21 22:26:43 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ void				map_size(t_list *lst, t_map *game);
 // int		validate_map(t_map *game);
 // void	print_map(char **map);
 
-
-
+void algorithm(t_map *game);
+int player_movment(int key, void *game);
+int   rander_map(t_game *game);
+/*tools*/
+void	*ft_memset(void *s, int c, size_t n);
 #endif

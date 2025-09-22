@@ -9,7 +9,8 @@ SRCS = cub3d.c parsing/check_file_name.c parsing/utils.c \
 			parsing/check_map_contents.c parsing/validate_map.c \
 			parsing/utils_II.c parsing/clean_and_exit.c \
 			parsing/read_and_storemap.c parsing/textures_parser.c \
-			parsing/colors_parser.c parsing/map_state.c
+			parsing/colors_parser.c parsing/map_state.c \
+			algorithm/algorithm.c algorithm/rander_map.c algorithm/tools00.c
 
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 18:29:04 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/13 01:00:21 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	parsing(char *input, t_map *game, t_list **lst)
 	map_size(*lst, game);
 	allocate_and_fill_map(game, *lst);
 	validate_map(game);
-	printf("----PARSING IS DONE----\n");
+	// printf("----PARSING IS DONE----\n");
 }
 
 int	main(int argc, char *argv[])

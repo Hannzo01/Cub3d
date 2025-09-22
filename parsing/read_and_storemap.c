@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_storemap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:48 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:43:58 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/13 03:11:09 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
+int cheking(char *str)
+{
+	while (*str && (*str == ' ' || *str == '\t'))
+		str++;
+	if (*str == 0)
+		return 1;
+	return -1;
+}
 
 void	read_map(char *filename, t_list **lst, t_map *game)
 {
@@ -51,6 +59,33 @@ void	read_map(char *filename, t_list **lst, t_map *game)
 		line = get_next_line(fd);
 	}
 	// said_check(lst);
+	t_list *tmp = *lst;
+	while (tmp && cheking(tmp->line) == 1)
+	{
+		*lst = tmp->next;
+		tmp = tmp->next;
+	}
+	tmp = *lst;
+	t_list *aps = NULL;
+	while (tmp && cheking(tmp->line) == -1)
+	{
+		aps = tmp;
+		tmp = tmp->next;
+	}
+	if (tmp)
+	{		
+		while (tmp && cheking(tmp->line) == 1)
+		{
+			aps->next = aps->next->next;
+			tmp = aps->next;
+		}
+		if (tmp)
+		{
+			printf("erroooooooor\n");
+			exit(1);
+		}
+	}
+	
 	close(fd);
 	get_next_line(-1); // clean static var d gnl
 }
