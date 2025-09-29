@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/22 03:20:32 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/28 13:19:41 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void data_init(t_game *game, t_map *data)
 {
     /*------------------------open new image-----------------------*/
-    game->new_image.image = mlx_new_image(game->mlx, 1920, 1080);
+    game->new_image.image = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
     game->new_image.image_data = mlx_get_data_addr(game->new_image.image ,\
         &game->new_image.bits_per_pixel, &game->new_image.size_line ,\
         &game->new_image.endian);
-    ft_memset(game->new_image.image_data, 0, 1920*1080*4);
+    ft_memset(game->new_image.image_data, 0, SCREEN_WIDTH * SCREEN_HEIGHT * 4);
     /*------------------------load textuers -----------------------*/
 
     game->east.image = mlx_xpm_file_to_image(game->mlx, \
@@ -97,7 +97,7 @@ void algorithm(t_map *data)
     game->mlx = mlx_init();
     if (!game->mlx)
         exit (1);
-    game->window = mlx_new_window(game->mlx, 1920, 1080 , "cub3d");
+    game->window = mlx_new_window(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT , "cub3d");
     if (!game->window)
         exit (1);
     data_init(game, data);

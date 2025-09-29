@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/22 04:25:50 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/28 12:58:27 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ static void copy_textures_to_buffer(t_game *game, t_texture *texture, int dest_x
 void get_player_position(t_game *game, int *new_x, int *new_y)
 {
     if (game->player.up)
-        *new_y = -1;
-    if (game->player.down)
-        *new_y = 1;
-    if (game->player.right)
-        *new_x = 1;
-    if (game->player.left)
         *new_x = -1;
+    if (game->player.down)
+        *new_x = 1;
+    if (game->player.right)
+        *new_y = 1;
+    if (game->player.left)
+        *new_y = -1;
 
     game->player.up = 0;
     game->player.down = 0;
@@ -69,22 +69,40 @@ int rander_map(t_game *game)
 
     int i = 0;
     int j = 0;
-    int new_x = 0, new_y = 0, x ,y;
+    float x ,y;
+    int new_x = 0, new_y = 0;
+    int a = 0, b = 0;
+
     x = game->player.x;
     y = game->player.y;
     get_player_position(game, &new_x, &new_y);
     if (new_x)
     {
         x = game->player.x + (new_x * 4);
-        if (game->map[(x + (new_x * 4)) / 32][y] == '1')
+        a = x;
+        if (x > (float)a)
+            a = (x / 32 + 1) * 32;
+        if (game->map[a / 32][(int)(y / 32)] == '1')
+        {
+            printf("there\n");
             return 0;
-    }    
-    else
-    {
-        y = game->player.y + (new_y * 4);
-        if (game->map[x][(y + (new_y * 4)) / 32] == '1')
-            return 0;   
+        }
     }
+    if (new_y)
+    {
+        y = y + (new_y * 4);
+        b = y;
+        if (y > (float)b)
+            b = (y / 32  + 1) * 32;
+        if (game->map[(int)(x / 32)][b / 32] == '1')
+        {
+            printf("here\n");
+            return 0;
+        }
+    }
+
+    if (game->map[(int)(x / 32)][(int)(y /32)] == '1')
+        return 0;
     game->player.x = x;
     game->player.y = y;   
         
@@ -101,7 +119,7 @@ int rander_map(t_game *game)
         }
         i++;
     }
-    copy_textures_to_buffer(game, &game->minimap.player, y , x);   
+    copy_textures_to_buffer(game, &game->minimap.player, x , y);   
     mlx_put_image_to_window(game->mlx, game->window, game->new_image.image, 0, 0);
     return (0);
 }

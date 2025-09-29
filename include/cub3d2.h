@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:31:42 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/22 03:11:51 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/09/28 14:11:47 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 # include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
 #include "cub3d.h"
+
+#define SCREEN_WIDTH 1920
+#define SCREEN_HEIGHT 1080
 
 # define w_key 119
 # define a_key 97
@@ -40,10 +43,10 @@ typedef struct s_player
     int x;
     int y;
     char direction;
-    int dir_x;
-    int dir_y;
-    int plane_x;
-    int plane_y;
+    float dir_x;
+    float dir_y;
+    float plane_x;
+    float plane_y;
 }t_player;
 
 typedef struct s_texture
