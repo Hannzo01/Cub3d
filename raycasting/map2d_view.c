@@ -80,20 +80,6 @@ void	fill_one_cell(t_game *game, int rows, int col, int color)
 
 }
 
-void	render_line(int col, int rows, t_game *game)
-{
-	//x and y : starting point of the line
-		   //col = cord of the map Player cell
-		   		  //64 pixels + 32 pixel center 
-	int x = col * game->cell_size + game->cell_size / 2;
-	int y = rows * game->cell_size  + game->cell_size / 2;
-	while (game->map[y / game->cell_size][x / game->cell_size] != '1')
-	{
-		put_pixel(game, 0xff0000, x, y);
-		x = x + 1;
-	}
-
-}
 
 void	render_2d_map(t_game *game)
 {
@@ -109,8 +95,7 @@ void	render_2d_map(t_game *game)
 		{
 			color = decide_colors(rows, col, game);
 			fill_one_cell(game, rows, col, color); //loop over all pixels inside one cell
-			if (game->map[rows][col] == 'P')
-				render_line(col, rows, game);
+
 			col++;
 		}
 		rows++;
