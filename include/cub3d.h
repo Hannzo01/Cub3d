@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 11:21:23 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:19:03 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <unistd.h>
 # include "mlx.h"
 # include <string.h>
+# include <math.h>
 
+# define CELL_SIZE 32
 
 typedef struct s_gc
 {
