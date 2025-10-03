@@ -1,5 +1,6 @@
 #include <cub3d.h>
 #include <string.h>
+#include <math.h>
 
 
 // i need a clean 2d array grid 
@@ -12,7 +13,11 @@
 #define CELL_SIZE 32
 #define PI 3.14159265359
 #define PLANE_LENGTH 0.66
-
+#define rays_num 100
+#define FOV_DEGREE 60
+#define FOV_RADIANS (FOV_DEGREE * PI / 180)
+#define angle_increment FOV_RADIANS / rays_num
+#define step 0.01
 
 typedef struct s_player
 {
@@ -23,18 +28,45 @@ typedef struct s_player
 	//direction vector = where the player is looking
 	double dirx;
 	double diry;
-
+	
 	//camera plane = perpendicular to direction, defines the field of view.
-
+	
 	double planex;
 	double planey;
 	
-	float camerax;
-	double raydirx;
-	double raydiry;
-
 }	t_player;
 
+
+typedef struct s_ray
+{
+
+	float camerax;
+
+	double ray_dirx;
+	double ray_diry;
+	
+	int mapx;// Which grid square we're in
+	int mapy;
+	
+	double dist;
+	
+	int wall_touched;
+	int side; // 0 = mur vertical, 1 = mur horizontal
+
+	int	stepx;
+	int	stepy;
+	// 	stepx = +1 → Rayon va vers la droite
+	// stepx = -1 → Rayon va vers la gauche
+	// stepy = +1 → Rayon va vers le bas
+	// stepy = -1 → Rayon va vers le haut
+
+    double delta_distx;   // Distance entre lignes verticales
+    double delta_disty;   // Distance entre lignes horizontales
+
+	double sideDistx;
+	double sideDisty;
+
+}	t_ray;
 typedef struct s_grid
 {
 	char **map;
@@ -45,6 +77,7 @@ typedef struct s_grid
 	void	*mlx_image;
 	
 	t_player *player;
+	t_ray	*ray;
 
 	char	*address;
 	int		endian;
@@ -64,6 +97,7 @@ void map_copy(t_grid *grid, char *map[])
 	
 	// Allocate memory for player structure
 	grid->player = malloc(sizeof(t_player));
+	grid->ray = malloc(sizeof(t_ray));
 	
 	grid->player->px = 5 + 0.5;  //+0.5 to puts the player in the center of the cell
 	grid->player->py = 3 + 0.5;
@@ -74,12 +108,9 @@ void map_copy(t_grid *grid, char *map[])
 	grid->player->planex = -grid->player->diry * PLANE_LENGTH;
 	grid->player->planey = grid->player->dirx * PLANE_LENGTH;
 
-	grid->player->camerax = 2 * grid->player->dirx / COLS - 1;
 
-	grid->player->raydirx = grid->player->dirx + grid->player->planex * grid->player->camerax;
-	grid->player->raydiry = grid->player->diry + grid->player->planey * grid->player->camerax;
-
-
+	grid->ray->wall_touched = 0;
+	
 }
 int ft_close(t_grid *grid)
 {	
@@ -100,7 +131,7 @@ void	draw_circle(t_grid *grid, int cx, int cy, int radius, int color)
 		for (int x = -radius; x <= radius; x++)
 		{
 			if (x*x + y*y <= radius*radius)
-				put_pixel(grid, cx + x, cy + y, color);
+			put_pixel(grid, cx + x, cy + y, color);
 		}
 	}
 }
@@ -109,11 +140,11 @@ void	render_one_cell(t_grid *grid, int color, int x, int y)
 {
 	int x_pixel;
 	int y_pixel;
-
+	
 	int x_pixel_start = x * CELL_SIZE;
 	int	y_pixel_start = y * CELL_SIZE;
-
-
+	
+	
 	y_pixel = y_pixel_start;
 	while (y_pixel < y_pixel_start + CELL_SIZE)
 	{
@@ -126,6 +157,65 @@ void	render_one_cell(t_grid *grid, int color, int x, int y)
 		y_pixel++;
 	}
 }
+
+
+void	cast_rays(t_grid *grid)
+{
+	int	i;
+	int mapx;
+	int mapy;
+	i = 0;
+	while (i < COLS)
+	{
+		//var tempo pour chquae rayon
+		// grid->ray->camerax = 2 * grid->player->dirx / (double)COLS - 1; //cameraX = 2 * x / double(w) - 1; w =COLS * TILE_SIZE (352 pixels)
+		mapx = (int)grid->player->px;
+		mapy = (int)grid->player->py;
+
+		grid->ray->camerax = 2 * i / (double)COLS - 1;
+
+		grid->ray->ray_dirx = grid->player->dirx + grid->player->planex * grid->ray->camerax;
+		grid->ray->ray_diry = grid->player->diry + grid->player->planey * grid->ray->camerax;
+		grid->ray->delta_distx = fabs(1 / grid->ray->ray_dirx);
+		grid->ray->delta_disty = fabs(1 / grid->ray->ray_diry);
+
+		//reintialiser wall_touched pour chaque rayon 
+		grid->ray->wall_touched = 0;
+	
+		if (grid->ray->ray_dirx < 0 )
+		{
+			grid->ray->stepx = -1;
+			grid->ray->sideDistx = (grid->player->px - mapx) * grid->ray->delta_distx;
+		}
+		else
+		{
+			grid->ray->stepx = 1;
+			grid->ray->sideDistx = (mapx + 1.0 - grid->player->px) * grid->ray->delta_distx;
+		}
+
+		while (grid->ray->wall_touched == 0)
+		{
+			
+			// compare quelle ligne est la plus proche
+			// Ligne verticale plus proche → avancer en X
+			if (grid->ray->sideDistx < grid->ray->sideDisty)
+			{
+				grid->ray->sideDistx += grid->ray->delta_distx;
+				mapx = mapx + grid->ray->stepx;
+				grid->ray->side = 0;
+			}
+			else
+			{
+				grid->ray->sideDisty += grid->ray->delta_disty;
+				mapy = mapy + grid->ray->stepy;
+				grid->ray->side = 1;
+			}
+			if (grid->map[mapy][mapx] == '1')
+				grid->ray->wall_touched = 1;
+		}
+		i++;
+	}
+} //need to draw lines
 
 void	render_pixels(t_grid *grid)
 {
@@ -141,10 +231,10 @@ void	render_pixels(t_grid *grid)
 		}
 	}
 	
-	// Draw player as a blue circle at manually set position
 	int px_pixel = (int)(grid->player->px * CELL_SIZE);
 	int py_pixel = (int)(grid->player->py * CELL_SIZE);
-	draw_circle(grid, px_pixel, py_pixel, 5, 0x0000FF); // Blue circle with 5px radius
+	draw_circle(grid, px_pixel, py_pixel, 5, 0x0000FF);
+	cast_rays(grid);
 }
 
 void	start_mlx(t_grid *grid)
@@ -179,3 +269,4 @@ int main()
 	map_copy(grid ,map);
 	start_mlx(grid);
 }
+
