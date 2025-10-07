@@ -6,7 +6,7 @@
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/28 12:58:27 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/10/04 16:11:52 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int rander_map(t_game *game)
 
     x = game->player.x;
     y = game->player.y;
+    if (game->player.up)
+        
     get_player_position(game, &new_x, &new_y);
     if (new_x)
     {
@@ -82,11 +84,8 @@ int rander_map(t_game *game)
         a = x;
         if (x > (float)a)
             a = (x / 32 + 1) * 32;
-        if (game->map[a / 32][(int)(y / 32)] == '1')
-        {
-            printf("there\n");
+        if (game->map[a / 32 + 1][(int)(y / 32)] == '1')
             return 0;
-        }
     }
     if (new_y)
     {
@@ -95,10 +94,7 @@ int rander_map(t_game *game)
         if (y > (float)b)
             b = (y / 32  + 1) * 32;
         if (game->map[(int)(x / 32)][b / 32] == '1')
-        {
-            printf("here\n");
             return 0;
-        }
     }
 
     if (game->map[(int)(x / 32)][(int)(y /32)] == '1')
@@ -124,31 +120,3 @@ int rander_map(t_game *game)
     return (0);
 }
 
-int player_movment(int key, void *arg)
-{
-    t_game *game;
-
-    game = (t_game *)arg;
-    if (esc == key)
-        exit (0);
-    if (w_key == key)
-        game->player.up = 1;
-    if (a_key == key)
-        game->player.left = 1;
-    if (s_key == key)
-        game->player.down = 1;
-    if (d_key == key)
-        game->player.right = 1;
-
-
-    if (up_key == key)
-        game->player.up = 1;
-    if (left_key == key)
-        game->player.left = 1;
-    if (down_key == key)
-        game->player.down = 1;
-    if (right_key == key)
-        game->player.right = 1;
-    rander_map((t_game *)arg);
-    return key;
-}
