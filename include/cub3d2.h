@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d2.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:31:42 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/11/30 21:40:53 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:26:14 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
+# include "mlx.h"
 
 // Forward declaration for t_map from cub3d.h
 typedef struct s_map t_map;
@@ -102,7 +102,7 @@ void    cast_ray(t_game *game, int x);
 void    perform_dda(t_game *game, t_ray *ray);
 
 // Rendering
-int     rander_map(t_game *game);
+int     render_map(t_game *game);
 void    draw_wall(t_game *game, t_ray *ray, int x);
 void    put_pixel(t_img *img, int x, int y, int color);
 
@@ -113,6 +113,6 @@ void    rotate_player(t_game *game, double angle);
 
 // Helpers (if needed for linking)
 void    *gc_malloc(int size, t_map *game);
-void    *ft_memset(void *b, int c, size_t len);
+void	*ft_memset(void *s, int c, size_t n);
 
 #endif

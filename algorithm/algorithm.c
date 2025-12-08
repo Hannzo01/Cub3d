@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/11/30 19:02:48 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:28:38 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_game *fill_data(t_map *data)
 {
     t_game *game;
 
-    // Use gc_malloc if available, otherwise standard malloc via helper
     game = gc_malloc(sizeof(t_game), data);
     ft_memset(game, 0, sizeof(t_game));
     
@@ -59,7 +58,7 @@ t_game *fill_data(t_map *data)
     return (game);
 }
 
-int handel_exit(void *data)
+int handle_exit(void *data)
 {
     (void)data;
     exit(0);
@@ -73,19 +72,18 @@ void algorithm(t_map *data)
     game = fill_data(data);
     game->mlx = mlx_init();
     if (!game->mlx)
-        return ;
-        
+        return ;    
     game->win = mlx_new_window(game->mlx, SCREEN_W, SCREEN_H , "cub3d");
-    
-    // Create image buffer
+    if (!game->win)
+        return ;
     game->screen.img = mlx_new_image(game->mlx, SCREEN_W, SCREEN_H);
     game->screen.addr = mlx_get_data_addr(game->screen.img,
                                          &game->screen.bpp,
                                          &game->screen.line_len,
                                          &game->screen.endian);
     
-    mlx_hook(game->win, 17, 0, handel_exit, game);
+    mlx_hook(game->win, 17, 0, handle_exit, game);
     mlx_hook(game->win, 2, 1L<<0, player_movment, game);
-    mlx_loop_hook(game->mlx, rander_map, game);
+    mlx_loop_hook(game->mlx, render_map, game);
     mlx_loop(game->mlx);
 }

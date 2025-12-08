@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:21 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:40:49 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:54:04 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*elemet_var(char *line, t_map *game)
 
 	i = 0;
 	len = 0;
-	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
+	while (line[i] && (line[i] == ' ' || line[i] == '\t')) //ft_strchr
 		i++;
 	start = i;
 	while (line[i] && line[i] != ' ' && line[i] != '\t')

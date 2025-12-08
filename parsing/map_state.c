@@ -65,11 +65,4 @@ void	is_fully_filled(t_map *game)
 	}
 }
 
-void	are_floor_and_ceiling_diff(t_map *game)
-{
-	if (game->map_info->f[0] == game->map_info->c[0]
-		&& game->map_info->f[1] == game->map_info->c[1]
-		&& game->map_info->f[2] == game->map_info->c[2])
-		print_error_and_exit("Error\nFloor and ceiling colors must \
-			be different\n", game);
-}
+

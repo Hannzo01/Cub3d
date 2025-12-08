@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/11/30 15:41:14 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:17:19 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,19 @@ int	main(int argc, char *argv[])
 	game = malloc(sizeof(t_map));
 	if (game == NULL)
 		return (1);
-	initialize_game(game);
 	if (argc == 2)
-	{	parsing(argv[1], game, &lst);
+	{
+		initialize_game(game);
+		parsing(argv[1], game, &lst);
 		algorithm(game);
 		gc_free(game->gc); 
 		game->gc = NULL;
 		free(game);
 	}
 	else
+	{
+		free(game);
 		return (ft_putstr_fd("Enter a valid input\n", 2), 1);
+	}
 	return (0);
 }

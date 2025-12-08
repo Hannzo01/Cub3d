@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:53 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:44:19 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:20:19 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static void	fill_element(char *element, char *value, t_map *game)
 	if (ft_strcmp(element, "NO") == 0)
 	{
 		if (game->map_info->no != NULL)
-			print_error_and_exit("Error\nDuplicate element detected\n", game);
+			print_error_and_exit("Error\nDuplicate North texture\n", game);
 		game->map_info->no = f_strdup(value, game);
 	}
 	if (ft_strcmp(element, "SO") == 0)
 	{
 		if (game->map_info->so != NULL)
-			print_error_and_exit("Error\nDuplicate element detected\n", game);
+			print_error_and_exit("Error\nDuplicate South texture\n", game);
 		game->map_info->so = f_strdup(value, game);
 	}
 	if (ft_strcmp(element, "WE") == 0)
 	{
 		if (game->map_info->we != NULL)
-			print_error_and_exit("Error\nDuplicate element detected\n", game);
+			print_error_and_exit("Error\nDuplicate West texture\n", game);
 		game->map_info->we = f_strdup(value, game);
 	}
 	if (ft_strcmp(element, "EA") == 0)
 	{
 		if (game->map_info->ea != NULL)
-			print_error_and_exit("Error\nDuplicate element detected\n", game);
+			print_error_and_exit("Error\nDuplicate East texture\n", game);
 		game->map_info->ea = f_strdup(value, game);
 	}
 }
@@ -94,7 +94,7 @@ void	validate_and_fill_texture(char *element, char *line, t_map *game)
 	{
 		value = elemet_value(line, game);
 		is_a_xpm_file(value, game);
-		// file_existance(value);
+		// file_existance(value, game); tysali sechlahb render xpm
 		fill_element(element, value, game);
 	}
 	else

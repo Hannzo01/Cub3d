@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:06:03 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 20:46:50 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:49:00 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_array_format(t_map *game)
 	i = 0;
 	while (game->map[i])
 	{
-		while (game->map[i] && check_for_empty_line(game->map[i]) == -1)
+		while (game->map[i] && check_for_empty_line(game->map[i]) == -1) //use ft_strchr for better code
 			i++;
 		while (game->map[i] && check_for_empty_line(game->map[i]) == 1)
 			i++;

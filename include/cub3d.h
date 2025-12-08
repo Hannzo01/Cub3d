@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/11/30 18:58:00 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:13:22 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,5 @@ void				lstadd_back(t_list **lst, char *line, t_map *game);
 t_list				*lst_new(char *line, t_map *game);
 void				map_size(t_list *lst, t_map *game);
 
-//----REMOVE---->>>DEBUGGING------//
 
-// void	debug_map_validation(t_map *game);
-// int		validate_map(t_map *game);
-// void	print_map(char **map);
-
-void algorithm(t_map *data);
-int player_movment(int key, void *game);
-int   rander_map(t_game *game);
-/*tools*/
-void	*ft_memset(void *s, int c, size_t n);
-void    cast_rays(t_game *game);
-void put_pixel(t_img* screen, int x, int y, int color);
 #endif

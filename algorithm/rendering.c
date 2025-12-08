@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/28 14:17:56 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:25:53 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void draw_wall(t_game *game, t_ray *ray, int x)
         put_pixel(&game->screen, x, y, floor_c);
 }
 
-int rander_map(t_game *game)
+int render_map(t_game *game)
 {
     for (int x = 0; x < SCREEN_W; x++)
         cast_ray(game, x);

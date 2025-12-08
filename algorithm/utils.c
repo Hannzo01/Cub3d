@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/09/28 14:17:56 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:02:13 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-void *gc_malloc(int size, t_map *game)
+// void *gc_malloc(int size, t_map *game)
+// {
+//     (void)game;
+//     return malloc(size);
+// }
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-    (void)game;
-    return malloc(size);
+	size_t			i;
+	unsigned char	*p;
+
+	p = (unsigned char *) s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = (unsigned char) c;
+		i++;
+	}
+	return (s);
 }
 
-void *ft_memset(void *b, int c, size_t len)
-{
-    return memset(b, c, len);
-}
-
-int main(int argc, char **argv)
-{
-    (void)argc;
-    (void)argv;
-    
-    write(2, "Error\nThis is a test build. Please link with full project.\n", 59);
-    return (1);
-}
