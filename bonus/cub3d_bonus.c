@@ -1,0 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/12/08 20:42:41 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "include/cub3d_bonus.h"
+
+static void	parsing(char *input, t_map *game, t_list **lst)
+{
+	check_file_name(input, game);
+	read_map(input, lst, game);
+	map_size(*lst, game);
+	allocate_and_fill_map(game, *lst);
+	validate_map(game);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_list	*lst;
+	t_map	*game;
+
+	lst = NULL;
+	game = malloc(sizeof(t_map));
+	if (game == NULL)
+		return (1);
+	if (argc == 2)
+	{
+		initialize_game(game);
+		parsing(argv[1], game, &lst);
+		algorithm(game);
+		gc_free(game->gc); 
+		game->gc = NULL;
+		free(game);
+	}
+	else
+	{
+		free(game);
+		return (ft_putstr_fd("Enter a valid input\n", 2), 1);
+	}
+	return (0);
+}

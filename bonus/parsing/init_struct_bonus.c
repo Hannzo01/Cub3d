@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   init_struct_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:31:21 by kemzouri         ###   ########.fr       */
+/*   Created: 2025/09/06 18:05:26 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/12/08 20:43:26 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../include/cub3d_bonus.h"
 
-// void *gc_malloc(int size, t_map *game)
-// {
-//     (void)game;
-//     return malloc(size);
-// }
-
-void	*ft_memset(void *s, int c, size_t n)
+void	initialize_game(t_map *game)
 {
-	size_t			i;
-	unsigned char	*p;
+	int	i;
 
-	p = (unsigned char *) s;
 	i = 0;
-	while (i < n)
+	ft_memset(game, 0, sizeof(t_map));
+	game->map_info = gc_malloc(sizeof(t_info), game);
+	ft_memset(game->map_info, 0, sizeof(t_info));
+	while (i < 3)
 	{
-		p[i] = (unsigned char) c;
+		game->map_info->f[i] = -1;
+		game->map_info->c[i] = -1;
 		i++;
 	}
-	return (s);
 }
-

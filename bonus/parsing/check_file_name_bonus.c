@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   check_file_name_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:31:21 by kemzouri         ###   ########.fr       */
+/*   Created: 2025/09/06 18:05:12 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/12/08 20:43:44 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../include/cub3d_bonus.h"
 
-// void *gc_malloc(int size, t_map *game)
-// {
-//     (void)game;
-//     return malloc(size);
-// }
-
-void	*ft_memset(void *s, int c, size_t n)
+void	check_file_name(char *name, t_map *game)
 {
-	size_t			i;
-	unsigned char	*p;
+	char	*dot;
 
-	p = (unsigned char *) s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = (unsigned char) c;
-		i++;
-	}
-	return (s);
+	if (ft_strlen(name) < 5)
+		print_error_and_exit("Error\nInvalid file name\n", game);
+	dot = ft_strrchr(name, '.');
+	if (dot == NULL)
+		print_error_and_exit("Error\nInvalid file name\n", game);
+	if (ft_strcmp(dot, ".cub") != 0)
+		print_error_and_exit("Error\nInvalid extension. Usage: .cub\n", game);
 }
-
