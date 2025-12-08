@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:37:44 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/08 22:17:23 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void rotate_player(t_game *game, double angle)
 
 int check_collision(t_game *game, double new_x, double new_y)
 {
-    int map_x = (int)(new_x / tile_size);
-    int map_y = (int)(new_y / tile_size);
+    int map_x = (int)(new_x / TILE_SIZE);
+    int map_y = (int)(new_y / TILE_SIZE);
     
     if (map_x < 0 || map_x >= game->map.width || map_y < 0 || map_y >= game->map.height)
         return (1);

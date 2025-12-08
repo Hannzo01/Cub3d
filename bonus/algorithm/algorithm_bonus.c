@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:37:40 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/08 22:17:03 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_game *fill_data(t_map *data)
     game->map.ceil_color = data->map_info->c;
 
     // Player position (center of tile)
-    game->player.pos_x = (double)data->p_x * tile_size + tile_size / 2.0;
-    game->player.pos_y = (double)data->p_y * tile_size + tile_size / 2.0;
+    game->player.pos_x = (double)data->p_x * TILE_SIZE + TILE_SIZE / 2.0;
+    game->player.pos_y = (double)data->p_y * TILE_SIZE + TILE_SIZE / 2.0;
 
     // Set direction based on map character
     char spawn_dir = data->map[data->p_y][data->p_x];

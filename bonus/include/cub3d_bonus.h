@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 20:37:05 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/08 22:15:33 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 
 # define SCREEN_W 1080
 # define SCREEN_H 720
-# define tile_size 64
+# define TILE_SIZE 64
+# define BONUS_TILE 8
 
 // Key codes
 # define KEY_W 119
@@ -210,6 +211,10 @@ void    rotate_player(t_game *game, double angle);
 // Helpers (if needed for linking)
 void    *gc_malloc(int size, t_map *game);
 void	*ft_memset(void *s, int c, size_t n);
+
+//------------------------BONUS-----------------------//
+void    render_minimap(t_game *game);
+
 //***************************************//
 
 #endif

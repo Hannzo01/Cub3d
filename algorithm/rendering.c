@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:31:17 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/08 21:08:30 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,14 @@ void draw_wall(t_game *game, t_ray *ray, int x)
 
 int render_map(t_game *game)
 {
-    for (int x = 0; x < SCREEN_W; x++)
+    int x;
+
+    x = 0;
+    while (x < SCREEN_W)
+    {
         cast_ray(game, x);
-    
+        x++;
+    }   
     mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
     return (0);
 }
