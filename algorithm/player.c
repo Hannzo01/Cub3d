@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 20:29:50 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:20:16 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,32 @@ void rotate_player(t_game *game, double angle)
 
 int check_collision(t_game *game, double new_x, double new_y)
 {
-    int map_x = (int)(new_x / tile_size);
-    int map_y = (int)(new_y / tile_size);
-    
-    if (map_x < 0 || map_x >= game->map.width || map_y < 0 || map_y >= game->map.height)
+    int top_left_x;
+    int top_left_y;
+    int top_right_x;
+    int top_right_y;
+    int bottom_left_x;
+    int bottom_left_y;
+    int bottom_right_x;
+    int bottom_right_y;
+
+    top_left_x = (int)(new_x / TILE_SIZE);
+    top_left_y = (int)(new_y / TILE_SIZE);
+    top_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
+    top_right_y = (int)(new_y / TILE_SIZE);
+    bottom_left_x = (int)(new_x / TILE_SIZE);
+    bottom_left_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
+    bottom_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
+    bottom_right_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
+    if (top_left_x < 0 || top_left_y < 0 || bottom_right_x >= game->map.width || bottom_right_y >= game->map.height)
         return (1);
-    if (game->map.layout[map_y][map_x] == '1')
+    if (game->map.layout[top_left_y][top_left_x] == '1')
+        return (1);
+    if (game->map.layout[top_right_y][top_right_x] == '1')
+        return (1);
+    if (game->map.layout[bottom_left_y][bottom_left_x] == '1') 
+        return (1);
+    if (game->map.layout[bottom_right_y][bottom_right_x] == '1') 
         return (1);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 22:15:33 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:22:42 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,7 @@ void	*ft_memset(void *s, int c, size_t n);
 
 //------------------------BONUS-----------------------//
 void    render_minimap(t_game *game);
+int     mouse_move(int x, int y, t_game *game);
 
 //***************************************//
 

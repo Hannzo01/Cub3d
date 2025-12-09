@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 20:52:06 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:09:06 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define SCREEN_W 1080
 # define SCREEN_H 720
-# define tile_size 64
+# define TILE_SIZE 64
 
 // Key codes
 # define KEY_W 119
@@ -35,6 +35,7 @@
 # define KEY_ESC 65307
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define PLAYER_SIZE 8
 
 
 typedef struct s_gc

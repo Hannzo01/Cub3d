@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/08 22:17:03 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:20:17 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void algorithm(t_map *data)
     
     mlx_hook(game->win, 17, 0, handle_exit, game);
     mlx_hook(game->win, 2, 1L<<0, player_movment, game);
+    mlx_hook(game->win, 6, 1L<<6, mouse_move, game);
+    mlx_mouse_hide(game->mlx, game->win);
     mlx_loop_hook(game->mlx, render_map, game);
     mlx_loop(game->mlx);
 }

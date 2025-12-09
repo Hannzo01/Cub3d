@@ -25,7 +25,8 @@ BONUS_SRCS = bonus/cub3d_bonus.c \
 		bonus/parsing/colors_parser_bonus.c bonus/parsing/map_state_bonus.c \
 		bonus/gnl/get_next_line_bonus.c bonus/gnl/get_next_line_utils_bonus.c \
 		bonus/algorithm/algorithm_bonus.c bonus/algorithm/player_bonus.c bonus/algorithm/raycasting_bonus.c \
-		bonus/algorithm/rendering_bonus.c bonus/algorithm/utils_bonus.c bonus/algorithm/mini_map_bonus.c
+		bonus/algorithm/rendering_bonus.c bonus/algorithm/utils_bonus.c bonus/algorithm/mini_map_bonus.c \
+		bonus/algorithm/mouse_movement_bonus.c 
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 21:04:02 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 22:41:23 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:27:31 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void render_minimap(t_game *game)
         {
             if (game->map.layout[y][x] == '1')
                 draw_rect(game, x * 8, y * 8, 8, 0xFFFFFF);
-            else
-                draw_rect(game, x * 8, y * 8, 8, 0x159801); // 7ydi hadi lmbghiti ta loun f l2ard
+            // else
+            //     draw_rect(game, x * 8, y * 8, 8, 0x159801); // 7ydi hadi lmbghiti ta loun f l2ard
 
             x++;
         }
