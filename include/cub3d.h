@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/09 17:09:06 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/11/30 18:58:00 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <math.h>
-# include "mlx.h"
-
-
-//**********MACROS**************//
-
-# define SCREEN_W 1080
-# define SCREEN_H 720
-# define TILE_SIZE 64
-
-// Key codes
-# define KEY_W 119
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_ESC 65307
-# define KEY_LEFT 65361
-# define KEY_RIGHT 65363
-# define PLAYER_SIZE 8
+# include "cub3d2.h"
+#include <math.h>
+#include "cub3d2.h"
 
 
 typedef struct s_gc
@@ -50,8 +34,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-//**********-STRUCTS-**************//
-// ------PARSING--PART-------------//
 typedef struct s_info
 {
 	char			*no;
@@ -77,69 +59,6 @@ typedef struct s_map
 	t_gc			*gc;
 }					t_map;
 
-
-// ------RAYCASTING--PART-------------//
-
-typedef struct s_player
-{
-    double  pos_x;
-    double  pos_y;
-    double  dir_x;
-    double  dir_y;
-    double  plane_x;
-    double  plane_y;
-}   t_player;
-
-typedef struct s_img
-{
-    void    *img;
-    char    *addr;
-    int     bpp;
-    int     line_len;
-    int     endian;
-}   t_img;
-
-typedef struct s_maps
-{
-    char    **layout;
-    int     width;
-    int     height;
-    char    *no_texture;
-    char    *so_texture;
-    char    *we_texture;
-    char    *ea_texture;
-    int     *floor_color;
-    int     *ceil_color;
-}   t_maps;
-
-typedef struct s_game
-{
-    void        *mlx;
-    void        *win;
-    t_img       screen;
-    t_maps      map;
-    t_player    player;
-}   t_game;
-
-typedef struct s_ray
-{
-    double  dir_x;
-    double  dir_y;
-    int     map_x;
-    int     map_y;
-    double  side_dist_x;
-    double  side_dist_y;
-    double  delta_dist_x;
-    double  delta_dist_y;
-    double  perp_wall_dist;
-    int     step_x;
-    int     step_y;
-    int     side;
-}   t_ray;
-
-
-//*******************************************************************//
-//*************-FUNCTIONS-*************//
 //-------------PARSING---------------//
 void				check_file_name(char *name, t_map *game);
 void				allocate_and_fill_map(t_map *game, t_list *lst);
@@ -185,32 +104,20 @@ void				gc_free(t_gc *gc);
 void				lstadd_back(t_list **lst, char *line, t_map *game);
 t_list				*lst_new(char *line, t_map *game);
 void				map_size(t_list *lst, t_map *game);
-//*******************************************************************//
 
-//***************************************//
+/*--------------raycasting----------------*/
+void init_textures(t_game *game);
 
-//-------------RAYCASTING---------------//
-// Algorithm functions
-void    algorithm(t_map *data);
-t_game  *fill_data(t_map *data);
-
-// Raycasting
-void    cast_ray(t_game *game, int x);
-void    perform_dda(t_game *game, t_ray *ray);
-
-// Rendering
-int     render_map(t_game *game);
-void    draw_wall(t_game *game, t_ray *ray, int x);
-void    put_pixel(t_img *img, int x, int y, int color);
-
-// Player
-int     player_movment(int keycode, void *param);
-void    move_player(t_game *game, double move_x, double move_y);
-void    rotate_player(t_game *game, double angle);
-
-// Helpers (if needed for linking)
-void    *gc_malloc(int size, t_map *game);
+void algorithm(t_map *game);
+int player_movment(int key, void *game);
+int   rander_map(t_game *game);
+/*tools*/
 void	*ft_memset(void *s, int c, size_t n);
-//***************************************//
+void raycasting(t_game *game, int x);
+
+/*pixels*/
+unsigned int get_texture_pixel(t_img *tex, int x, int y);
+int create_trgb(int t, int r, int g, int b);
+void put_pixel(t_img *img, int x, int y, int color);
 
 #endif

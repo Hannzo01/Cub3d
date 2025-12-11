@@ -1,100 +1,133 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 13:21:08 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/09 17:20:16 by kemzouri         ###   ########.fr       */
+/*   Created: 2025/10/04 16:05:53 by sechlahb          #+#    #+#             */
+/*   Updated: 2025/11/30 21:38:53 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void rotate_player(t_game *game, double angle)
-{
-    // Rotate direction vector
-    double old_dir_x = game->player.dir_x;
-    game->player.dir_x = game->player.dir_x * cos(angle) - game->player.dir_y * sin(angle);
-    game->player.dir_y = old_dir_x * sin(angle) + game->player.dir_y * cos(angle);
-    
-    // Rotate camera plane
-    double old_plane_x = game->player.plane_x;
-    game->player.plane_x = game->player.plane_x * cos(angle) - game->player.plane_y * sin(angle);
-    game->player.plane_y = old_plane_x * sin(angle) + game->player.plane_y * cos(angle);
-}
+// int is_wall_pixel(t_game *game, double new_x, double new_y)
+// {
+//     int top_left_x;
+//     int top_left_y;
+//     int top_right_x;
+//     int top_right_y;
+//     int bottom_left_x;
+//     int bottom_left_y;
+//     int bottom_right_x;
+//     int bottom_right_y;
 
-int check_collision(t_game *game, double new_x, double new_y)
-{
-    int top_left_x;
-    int top_left_y;
-    int top_right_x;
-    int top_right_y;
-    int bottom_left_x;
-    int bottom_left_y;
-    int bottom_right_x;
-    int bottom_right_y;
+//     top_left_x = (int)(new_x / tile_size);
+//     top_left_y = (int)(new_y / tile_size);
+//     top_right_x = (int)((new_x + player_size) / tile_size);
+//     top_right_y = (int)(new_y / tile_size);
+//     bottom_left_x = (int)(new_x / tile_size);
+//     bottom_left_y = (int)((new_y + player_size) / tile_size);
+//     bottom_right_x = (int)((new_x + player_size) / tile_size);
+//     bottom_right_y = (int)((new_y + player_size) / tile_size);
+//     if (top_left_x < 0 || top_left_y < 0 || bottom_right_x >= game->map.width || bottom_right_y >= game->map.height)
+//         return (1);
+//     if (game->map.layout[top_left_y][top_left_x] == '1')
+//         return (1);
+//     if (game->map.layout[top_right_y][top_right_x] == '1')
+//         return (1);
+//     if (game->map.layout[bottom_left_y][bottom_left_x] == '1') 
+//         return (1);
+//     if (game->map.layout[bottom_right_y][bottom_right_x] == '1') 
+//         return (1);
+//     return (0);
+// }
 
-    top_left_x = (int)(new_x / TILE_SIZE);
-    top_left_y = (int)(new_y / TILE_SIZE);
-    top_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
-    top_right_y = (int)(new_y / TILE_SIZE);
-    bottom_left_x = (int)(new_x / TILE_SIZE);
-    bottom_left_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
-    bottom_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
-    bottom_right_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
-    if (top_left_x < 0 || top_left_y < 0 || bottom_right_x >= game->map.width || bottom_right_y >= game->map.height)
+int	is_wall_pixel(t_game *game, int x, int y)
+{
+    int	map_x;
+    int	map_y;
+
+    map_x = (int)(x / tile_size);
+    map_y = (int)(y / tile_size);
+    if (map_y < 0 || map_y >= game->map.height
+        || map_x < 0 || map_x >= game->map.width)
         return (1);
-    if (game->map.layout[top_left_y][top_left_x] == '1')
-        return (1);
-    if (game->map.layout[top_right_y][top_right_x] == '1')
-        return (1);
-    if (game->map.layout[bottom_left_y][bottom_left_x] == '1') 
-        return (1);
-    if (game->map.layout[bottom_right_y][bottom_right_x] == '1') 
+    if (game->map.layout[map_y][map_x] == '1')
         return (1);
     return (0);
 }
 
-void move_player(t_game *game, double move_x, double move_y)
+static void	rotate_player(t_game *game, double angle)
 {
-    double new_x = game->player.pos_x + move_x;
-    double new_y = game->player.pos_y + move_y;
-    
-    // Check collision for X and Y separately to allow sliding along walls
-    if (!check_collision(game, new_x, game->player.pos_y))
+    double	old_dir_x;
+    double	old_plane_x;
+    double	cos_rot;
+    double	sin_rot;
+
+    old_dir_x = game->player.dir_x;
+    old_plane_x = game->player.plane_x;
+    cos_rot = cos(angle);
+    sin_rot = sin(angle);
+    game->player.dir_x = old_dir_x * cos_rot - game->player.dir_y * sin_rot;
+    game->player.dir_y = old_dir_x * sin_rot + game->player.dir_y * cos_rot;
+    game->player.plane_x = old_plane_x * cos_rot - game->player.plane_y * sin_rot;
+    game->player.plane_y = old_plane_x * sin_rot + game->player.plane_y * cos_rot;
+}
+
+static void	handle_rotation(t_game *game, int key)
+{
+    if (key == right_key)
+        rotate_player(game, ROT_SPEED);
+    else if (key == left_key)
+        rotate_player(game, -ROT_SPEED);
+}
+
+static void	calculate_new_position(t_game *game, int key, double *new_x, double *new_y)
+{
+    if (key == w_key || key == up_key)
+    {
+        *new_x += MOVE_SPEED * game->player.dir_x;
+        *new_y += MOVE_SPEED * game->player.dir_y;
+    }
+    else if (key == s_key || key == down_key)
+    {
+        *new_x -= MOVE_SPEED * game->player.dir_x;
+        *new_y -= MOVE_SPEED * game->player.dir_y;
+    }
+    else if (key == d_key)
+    {
+        *new_x -= MOVE_SPEED * game->player.dir_y;
+        *new_y += MOVE_SPEED * game->player.dir_x;
+    }
+    else if (key == a_key)
+    {
+        *new_x += MOVE_SPEED * game->player.dir_y;
+        *new_y -= MOVE_SPEED * game->player.dir_x;
+    }
+}
+
+int	player_movment(int key, void *arg)
+{
+    double	new_x;
+    double	new_y;
+    t_game	*game;
+
+    game = (t_game *)arg;
+    if (key == esc)
+        print_error_and_exit("End game\n", game->data);
+    if (key == right_key || key == left_key)
+    {
+        handle_rotation(game, key);
+        return (key);
+    }
+    new_x = game->player.pos_x;
+    new_y = game->player.pos_y;
+    calculate_new_position(game, key, &new_x, &new_y);
+    if (!is_wall_pixel(game, new_x, game->player.pos_y))
         game->player.pos_x = new_x;
-    if (!check_collision(game, game->player.pos_x, new_y))
+    if (!is_wall_pixel(game, game->player.pos_x, new_y))
         game->player.pos_y = new_y;
-}
-
-int player_movment(int keycode, void *param)
-{
-    t_game *game = (t_game *)param;
-    double move_speed = 5.0;
-    double rot_speed = 0.05;
-    
-    if (keycode == KEY_ESC)
-        exit(0);
-        
-    // Move forward/backward
-    if (keycode == KEY_W)
-        move_player(game, game->player.dir_x * move_speed, game->player.dir_y * move_speed);
-    if (keycode == KEY_S)
-        move_player(game, -game->player.dir_x * move_speed, -game->player.dir_y * move_speed);
-        
-    // Strafe left/right
-    if (keycode == KEY_A)
-        move_player(game, game->player.dir_y * move_speed, -game->player.dir_x * move_speed); // Perpendicular vector
-    if (keycode == KEY_D)
-        move_player(game, -game->player.dir_y * move_speed, game->player.dir_x * move_speed);
-        
-    // Rotate
-    if (keycode == KEY_LEFT)
-        rotate_player(game, -rot_speed);
-    if (keycode == KEY_RIGHT)
-        rotate_player(game, rot_speed);
-    
-    return (0);
+    return (key);
 }
