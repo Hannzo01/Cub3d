@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:21 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/12 09:38:23 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 21:41:54 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*elemet_var(char *line, t_map *game)
 		len++;
 		i++;
 	}
-	// len++;   zaydaaa
+	len++;
  	return (ft_substr(line, start, len, game));
 }
 

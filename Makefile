@@ -4,8 +4,8 @@ CC          = gcc
 CFLAGS      = -Wall -Wextra -Werror
 
 # --- PATHS ---
-# MLX_PATH    = /home/sechlahb/Desktop/minilibx-linux
-MLX_PATH    = minilibx-linux
+MLX_PATH    = /home/sechlahb/Desktop/minilibx-linux
+# MLX_PATH    = minilibx-linux
 
 # Mandatory
 MLX_LIB     = $(MLX_PATH)/libmlx_Linux.a
