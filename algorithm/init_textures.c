@@ -25,12 +25,12 @@ static void	load_texture(t_game *game, t_img *tex, char *path)
 	tex->addr = mlx_get_data_addr(tex->img, &tex->bpp, &tex->line_len,
 			&tex->endian);
 	if (!tex->addr)
-        print_error_and_exit("Error\nFailed to get texture address\n", game->data);
+		print_error_and_exit("Error\nFailed to get texture address\n",
+			game->data);
 }
 
 void	init_textures(t_game *game)
 {
-	// Load textures using paths stored in the xpm field
 	load_texture(game, &game->map.no_texture, game->map.no_texture.xpm);
 	load_texture(game, &game->map.so_texture, game->map.so_texture.xpm);
 	load_texture(game, &game->map.we_texture, game->map.we_texture.xpm);

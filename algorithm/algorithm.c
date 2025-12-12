@@ -41,7 +41,6 @@ static t_game	*fill_data(t_map *data)
 	game->map.layout = data->map;
 	game->map.width = data->max_len;
 	game->map.height = data->height;
-	// texters save
 	game->map.no_texture.xpm = data->map_info->no;
 	game->map.so_texture.xpm = data->map_info->so;
 	game->map.we_texture.xpm = data->map_info->we;
@@ -76,7 +75,6 @@ void	algorithm(t_map *data)
 	if (game->win == NULL)
 		print_error_and_exit("Error\nMlx creating win failed\n", data);
 	init_textures(game);
-	// create image buffer
 	game->screen.img = mlx_new_image(game->mlx, SCREEN_W, SCREEN_H);
 	game->screen.addr = mlx_get_data_addr(game->screen.img, &game->screen.bpp,
 			&game->screen.line_len, &game->screen.endian);

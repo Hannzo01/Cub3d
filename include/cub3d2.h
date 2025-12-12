@@ -12,8 +12,7 @@
 
 #ifndef CUB3D2_H
 # define CUB3D2_H
-// # include "./../minilibx-linux/mlx.h"
-// #include "/mnt/c/Users/DELL/OneDrive/Bureau/42 school cersus/1337-Common-core/minilibx-linux/mlx.h"
+
 # include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
 // # include "/home/kemzouri/minilibx-linux/mlx.h"
 # define SCREEN_W 1080
@@ -21,11 +20,12 @@
 
 # define TILE_SIZE 32
 # define MOVE_SPEED 4.0
+# define PLAYER_SIZE 8
 
 /*5 degrees in radians*/
 // # define ROT_SPEED (5.0 * 3.14159265358979323846 / 180.0)
 # define ROT_SPEED 0.08726646
-	// drtlha hnayaaa resultat hit li lfo9 mabghthach norminette
+// drtlha hnayaaa resultat hit li lfo9 mabghthach norminette
 # define COLOR_BG 0x1E1E1E
 # define COLOR_WALL 0x888888
 # define COLOR_EMPTY 0x2E2E2E
@@ -43,6 +43,7 @@
 # define RIGHT_KEY 65363
 
 typedef struct s_map	t_map;
+
 typedef struct s_player
 {
 	double				pos_x;
@@ -104,5 +105,16 @@ typedef struct s_ray
 	int					step_y;
 	int					side;
 }						t_ray;
+
+typedef struct s_tex_ctx
+{
+	t_img	*tex;
+	int		tx;
+	double	step;
+	double	pos;
+	int		draw_start;
+	int		draw_end;
+	int		x;
+}	t_tex_ctx;
 
 #endif

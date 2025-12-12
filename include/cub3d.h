@@ -114,9 +114,12 @@ void					init_textures(t_game *game);
 void					algorithm(t_map *game);
 int						player_movment(int key, void *game);
 int						rander_map(t_game *game);
+void					perform_dda(t_game *game, t_ray *ray);
+void					draw_wall(t_game *game, t_ray *ray, int x);
 /*tools*/
 void					*ft_memset(void *s, int c, size_t n);
 void					raycasting(t_game *game, int x);
+int						is_wall_pixel(t_game *game, int x, int y);
 
 /*pixels*/
 unsigned int			get_texture_pixel(t_img *tex, int x, int y);

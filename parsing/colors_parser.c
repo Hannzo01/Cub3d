@@ -74,7 +74,7 @@ char	*elemet_var(char *line, t_map *game)
 		i++;
 	}
 	len++;
- 	return (ft_substr(line, start, len, game));
+	return (ft_substr(line, start, len, game));
 }
 
 static void	valid_rgb(char *rgb, char *element, t_map *game)
