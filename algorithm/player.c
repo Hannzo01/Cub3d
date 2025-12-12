@@ -12,6 +12,8 @@
 
 #include "../include/cub3d.h"
 
+// #define PLAYER_SIZE 8
+
 // int is_wall_pixel(t_game *game, double new_x, double new_y) // check elach khask tkhdem b hado o mchi b lokhra
 // {
 //     int top_left_x;
@@ -23,16 +25,16 @@
 //     int bottom_right_x;
 //     int bottom_right_y;
 
-//     top_left_x = (int)(new_x / tile_size);
-//     top_left_y = (int)(new_y / tile_size);
-//     top_right_x = (int)((new_x + player_size) / tile_size);
-//     top_right_y = (int)(new_y / tile_size);
-//     bottom_left_x = (int)(new_x / tile_size);
-//     bottom_left_y = (int)((new_y + player_size) / tile_size);
-//     bottom_right_x = (int)((new_x + player_size) / tile_size);
-//     bottom_right_y = (int)((new_y + player_size) / tile_size);
+//     top_left_x = (int)(new_x / TILE_SIZE);
+//     top_left_y = (int)(new_y / TILE_SIZE);
+//     top_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
+//     top_right_y = (int)(new_y / TILE_SIZE);
+//     bottom_left_x = (int)(new_x / TILE_SIZE);
+//     bottom_left_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
+//     bottom_right_x = (int)((new_x + PLAYER_SIZE) / TILE_SIZE);
+//     bottom_right_y = (int)((new_y + PLAYER_SIZE) / TILE_SIZE);
 //     if (top_left_x < 0 || top_left_y < 0 || bottom_right_x >= game->map.width
-	// || bottom_right_y >= game->map.height)
+// 	|| bottom_right_y >= game->map.height)
 //         return (1);
 //     if (game->map.layout[top_left_y][top_left_x] == '1')
 //         return (1);

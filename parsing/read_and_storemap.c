@@ -17,13 +17,13 @@ static void	handle_map_content(char *line, t_list **lst, t_map *game,
 {
 	if (line[0] == '\0')
 	{
-		if (state[0])
+		if (state[0] == 1)
 			state[1] = 1;
 	}
 	else
 	{
-		if (state[1])
-			print_error_and_exit("Error\nContent after map", game);
+		if (state[1] == 1)
+			print_error_and_exit("Error\nContent after map\n", game);
 		lstadd_back(lst, f_strdup(line, game), game);
 		state[0] = 1;
 	}
@@ -54,9 +54,9 @@ static void	process_line(char *line, t_list **lst, t_map *game, int *state)
 
 void	read_map(char *filename, t_list **lst, t_map *game)
 {
-	int		fd;
 	char	*line;
 	char	*tmp;
+	int		fd;
 	int		state[2];
 
 	state[0] = 0;

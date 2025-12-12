@@ -12,8 +12,9 @@
 
 #ifndef CUB3D2_H
 # define CUB3D2_H
+# include "./../minilibx-linux/mlx.h"
 // #include "/mnt/c/Users/DELL/OneDrive/Bureau/42 school cersus/1337-Common-core/minilibx-linux/mlx.h"
-# include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
+// # include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
 // # include "/home/kemzouri/minilibx-linux/mlx.h"
 # define SCREEN_W 1080
 # define SCREEN_H 720

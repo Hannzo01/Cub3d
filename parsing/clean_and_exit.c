@@ -52,22 +52,25 @@ void	gc_free(t_gc *gc)
 
 void	clean_mlx(t_game *game)
 {
-	if (game->map.no_texture.img != NULL)
-		mlx_destroy_image(game->mlx, game->map.no_texture.img);
-	if (game->map.so_texture.img != NULL)
-		mlx_destroy_image(game->mlx, game->map.so_texture.img);
-	if (game->map.ea_texture.img != NULL)
-		mlx_destroy_image(game->mlx, game->map.ea_texture.img);
-	if (game->map.we_texture.img != NULL)
-		mlx_destroy_image(game->mlx, game->map.we_texture.img);
-	if (game->screen.img)
-		mlx_destroy_image(game->mlx, game->screen.img);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
+	if (game != NULL)
 	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
+		if (game->map.no_texture.img != NULL)
+			mlx_destroy_image(game->mlx, game->map.no_texture.img);
+		if (game->map.so_texture.img != NULL)
+			mlx_destroy_image(game->mlx, game->map.so_texture.img);
+		if (game->map.ea_texture.img != NULL)
+			mlx_destroy_image(game->mlx, game->map.ea_texture.img);
+		if (game->map.we_texture.img != NULL)
+			mlx_destroy_image(game->mlx, game->map.we_texture.img);
+		if (game->screen.img)
+			mlx_destroy_image(game->mlx, game->screen.img);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
+		if (game->mlx)
+		{
+			mlx_destroy_display(game->mlx);
+			free(game->mlx);
+		}
 	}
 }
 
