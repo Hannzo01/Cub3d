@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:21 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 11:54:04 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 09:38:23 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*elemet_var(char *line, t_map *game)
 
 	i = 0;
 	len = 0;
-	while (line[i] && (line[i] == ' ' || line[i] == '\t')) //ft_strchr
+	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 		i++;
 	start = i;
 	while (line[i] && line[i] != ' ' && line[i] != '\t')

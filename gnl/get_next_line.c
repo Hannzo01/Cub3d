@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 16:55:21 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:52:12 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*get_next_line(int fd)
 		store = NULL;
 		return (NULL);
 	}
-	if (fd <= 0)
+	if (fd < 0)
 		return (NULL);
 	store = get_one_line(fd, store);
 	line = remove_after_newline(store);

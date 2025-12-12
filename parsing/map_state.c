@@ -49,8 +49,8 @@ void	check_if_metabeta(char *line, t_map *game)
 	else if (ft_strncmp(element, "C ", 2) == 0)
 		check_and_fill_color("C", line, game);
 	else
-		print_error_and_exit(\
-			"Error\nMissing or Unrecognized element in config\n", game);
+		print_error_and_exit("Error\nMissing or Unrecognized element in config\n",
+			game);
 }
 
 void	is_fully_filled(t_map *game)
@@ -64,5 +64,3 @@ void	is_fully_filled(t_map *game)
 		game->map_info->is_full = 1;
 	}
 }
-
-

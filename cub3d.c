@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:37:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 19:17:19 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:01:10 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	parsing(char *input, t_map *game, t_list **lst)
 	map_size(*lst, game);
 	allocate_and_fill_map(game, *lst);
 	validate_map(game);
-	// printf("----PARSING IS DONE----\n");
 }
 
 int	main(int argc, char *argv[])
@@ -36,7 +35,8 @@ int	main(int argc, char *argv[])
 		initialize_game(game);
 		parsing(argv[1], game, &lst);
 		algorithm(game);
-		gc_free(game->gc); 
+		clean_mlx(game->game_ptr);
+		gc_free(game->gc);
 		game->gc = NULL;
 		free(game);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_and_exit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:18 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 10:35:52 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:42:36 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,40 @@ void	gc_free(t_gc *gc)
 	}
 }
 
+void	clean_mlx(t_game *game)
+{
+	if (game->map.no_texture.img != NULL)
+		mlx_destroy_image(game->mlx, game->map.no_texture.img);
+	if (game->map.so_texture.img != NULL)
+		mlx_destroy_image(game->mlx, game->map.so_texture.img);
+	if (game->map.ea_texture.img != NULL)
+		mlx_destroy_image(game->mlx, game->map.ea_texture.img);
+	if (game->map.we_texture.img != NULL)
+		mlx_destroy_image(game->mlx, game->map.we_texture.img);
+	if (game->screen.img)
+		mlx_destroy_image(game->mlx, game->screen.img);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+}
+
 void	print_error_and_exit(char *msg, t_map *game)
 {
-	ft_putstr_fd(msg, 2);
+	if (msg)
+		ft_putstr_fd(msg, 2);
+	else
+		ft_putstr_fd("GAME OVER\n", 1);
+	if (game->game_ptr != NULL)
+		clean_mlx(game->game_ptr);
 	get_next_line(-1);
 	gc_free(game->gc);
 	game->gc = NULL;
 	free(game);
-	exit(1);
+	if (msg)
+		exit(1);
+	exit(0);
 }

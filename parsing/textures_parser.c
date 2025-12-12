@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:53 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/08 19:20:19 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:43:18 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	validate_and_fill_texture(char *element, char *line, t_map *game)
 	{
 		value = elemet_value(line, game);
 		is_a_xpm_file(value, game);
-		// file_existance(value, game); tysali sechlahb render xpm
+		file_existance(value, game);
 		fill_element(element, value, game);
 	}
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:06:03 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/07 11:49:00 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/12 09:35:38 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	check_array_format(t_map *game)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (game->map[i])
 	{
-		while (game->map[i] && check_for_empty_line(game->map[i]) == -1) //use ft_strchr for better code
+		while (game->map[i] && check_for_empty_line(game->map[i]) == -1)
 			i++;
 		while (game->map[i] && check_for_empty_line(game->map[i]) == 1)
 			i++;
