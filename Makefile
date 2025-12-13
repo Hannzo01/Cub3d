@@ -25,7 +25,7 @@ SRCS = cub3d.c \
         gnl/get_next_line.c gnl/get_next_line_utils.c \
         algorithm/algorithm.c algorithm/player.c algorithm/raycasting.c \
         algorithm/init_textures.c algorithm/tools00.c algorithm/pixels.c \
-         algorithm/draw_wall.c algorithm/dda.c 
+         algorithm/draw_wall.c algorithm/dda.c algorithm/delete.c
 
 
 OBJS        = $(SRCS:.c=.o)

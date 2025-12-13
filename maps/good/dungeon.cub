@@ -1,5 +1,5 @@
-F 76,76,76
-C 99,99,99
+F 98,49,33
+C 79,105,166
 
 NO ./textures/north.xpm
 SO ./textures/south.xpm

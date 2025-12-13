@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rander_map.c                                       :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:28:22 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/05 17:07:55 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:36:26 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	raycasting(t_game *game, int x)
 	draw_wall(game, &ray, x);
 }
 
+
 int	rander_map(t_game *game)
 {
 	int	i;
@@ -83,6 +84,7 @@ int	rander_map(t_game *game)
 		raycasting(game, i);
 		i++;
 	}
+	// render_minimap(game); ms7 hada
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 	return (0);
 }

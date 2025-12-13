@@ -1,41 +1,43 @@
 /* XPM */
-static char *nether_lava_xpm[] = {
-/* columns rows colors chars-per-pixel */
-"32 32 3 1 ",
-"  c #D35400", /* Orange foncé (bords) */
-". c #F39C12", /* Orange vif (flux) */
-"X c #F1C40F", /* Jaune (coeur chaud) */
+static char * farm_window_final_xpm[] = {
+"32 32 6 1 ",
+". c #4A3121", /* Dark Brown */
+"X c #A67B5B", /* Tan Wall */
+"o c #4C8F35", /* Green Plants */
+"+ c #4F73A6", /* Blue Sky */
+"@ c #D97C2B", /* Orange Flowers/Light */
+"# c #FFFFFF", /* White Clouds/Flowers */
 /* pixels */
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
-".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
-".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
-" ..X...   ..X...   ..X...   ..X.",
-"   . .      . .      . .      . ",
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
-".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
-".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
-" ..X...   ..X...   ..X...   ..X.",
-"   . .      . .      . .      . ",
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
-".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
-".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
-" ..X...   ..X...   ..X...   ..X.",
-"   . .      . .      . .      . ",
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
-".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
-".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
-" ..X...   ..X...   ..X...   ..X.",
-"   . .      . .      . .      . ",
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
-".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
-".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
-" ..X...   ..X...   ..X...   ..X.",
-"   . .      . .      . .      . ",
-"  ..XX..  ..XX..  ..XX..  ..XX..",
-" ..XXXX.. ..XXXX.. ..XXXX.. ..XX"
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXX....................XXXXXX",
+"XXXXXX.++###+++++++###+++.XXXXXX",
+"XXXXXX.+#####+++++#####++.XXXXXX",
+"XXXXXX.+#####+++++#####++.XXXXXX",
+"XXXXXX.++###+++++++###+++.XXXXXX",
+"XXXXXX.++++++++++++++++++.XXXXXX",
+"XXXXXX.++++++++######++++.XXXXXX",
+"XX...X.+++++++########+++.X...XX",
+"XX.@.X.+++++++########+++.X.@.XX",
+"XX.@.X....................X.@.XX",
+"XX...X.+++++++########+++.X...XX",
+"XXX.XX.++++++++######++++.XX.XXX",
+"XXXXXX.++++++++++++++++++.XXXXXX",
+"XXXXXX.+++####+++++++++++.XXXXXX",
+"XXXXXX.++######++++++++++.XXXXXX",
+"XXXXXX.++######++++++++++.XXXXXX",
+"XXXXXX.+++####+++++++++++.XXXXXX",
+"XXXXXX.++++++++++++++++++.XXXXXX",
+"XXXXXX....................XXXXXX",
+"XXXXXX.o#@o#oo@o#oo@o#oo@.XXXXXX",
+"XXXXXX.oo#oooo#oooo#oooo#.XXXXXX",
+"XXXXXX....................XXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 };

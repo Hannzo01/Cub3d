@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:38:06 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/12 11:04:38 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:37:32 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void					*gc_malloc(int size, t_map *game);
 void					allocate_and_fill_map(t_map *game, t_list *lst);
 
 void					is_fully_filled(t_map *game);
-void					are_floor_and_ceiling_diff(t_map *game);
 void					check_if_metabeta(char *line, t_map *game);
 int						count_param(char *line);
 void					validate_and_fill_texture(char *element, char *line,
@@ -125,5 +124,8 @@ int						is_wall_pixel(t_game *game, int x, int y);
 unsigned int			get_texture_pixel(t_img *tex, int x, int y);
 int						create_trgb(int t, int r, int g, int b);
 void					put_pixel(t_img *img, int x, int y, int color);
+
+
+void render_minimap(t_game *game); // ms7 hadi
 
 #endif
