@@ -54,7 +54,7 @@ static t_game	*fill_data(t_map *data)
 	return (game);
 }
 
-int	handle_exit(void *data)
+static int	handle_exit(void *data)
 {
 	t_game	*game;
 

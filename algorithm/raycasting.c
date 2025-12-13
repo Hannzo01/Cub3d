@@ -61,7 +61,7 @@ static void	compute_step_and_side(t_game *game, t_ray *ray)
 	}
 }
 
-void	raycasting(t_game *game, int x)
+static void	raycasting(t_game *game, int x)
 {
 	t_ray	ray;
 	double	ray_angle;
