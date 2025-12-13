@@ -25,12 +25,6 @@
 /*5 degrees in radians*/
 // # define ROT_SPEED (5.0 * 3.14159265358979323846 / 180.0)
 # define ROT_SPEED 0.08726646
-// drtlha hnayaaa resultat hit li lfo9 mabghthach norminette
-# define COLOR_BG 0x1E1E1E
-# define COLOR_WALL 0x888888
-# define COLOR_EMPTY 0x2E2E2E
-# define COLOR_RAY 0xFFFF00
-# define COLOR_PLAYER 0x00FF00
 
 # define W_KEY 119
 # define A_KEY 97

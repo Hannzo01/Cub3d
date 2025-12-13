@@ -81,9 +81,10 @@ int	player_movment(int key, void *arg)
 	new_x = game->player.pos_x;
 	new_y = game->player.pos_y;
 	calculate_new_position(game, key, &new_x, &new_y);
-	if (!is_wall_pixel(game, new_x, game->player.pos_y))
+	if (!is_wall_pixel(game, new_x, new_y))
+	{
 		game->player.pos_x = new_x;
-	if (!is_wall_pixel(game, game->player.pos_x, new_y))
 		game->player.pos_y = new_y;
+	}
 	return (key);
 }

@@ -17,7 +17,7 @@ static void	compute_line_params(t_ray *ray, int *line_height, int *draw_start,
 {
 	if (ray->perp_wall_dist < 0.0001)
 		ray->perp_wall_dist = 0.0001;
-	*line_height = (int)(SCREEN_H / ray->perp_wall_dist);
+	*line_height = (int)((SCREEN_H / ray->perp_wall_dist) + 0.5);
 	*draw_start = SCREEN_H / 2 - *line_height / 2;
 	if (*draw_start < 0)
 		*draw_start = 0;
