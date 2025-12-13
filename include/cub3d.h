@@ -125,7 +125,6 @@ unsigned int			get_texture_pixel(t_img *tex, int x, int y);
 int						create_trgb(int t, int r, int g, int b);
 void					put_pixel(t_img *img, int x, int y, int color);
 
-
-void render_minimap(t_game *game); // ms7 hadi
+void					render_minimap(t_game *game);
 
 #endif

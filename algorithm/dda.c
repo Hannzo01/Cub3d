@@ -30,8 +30,8 @@ static void	advance_dda_step(t_ray *ray)
 
 static int	check_hit(t_game *game, t_ray *ray)
 {
-	if (ray->map_x < 0 || ray->map_x >= game->map.height || ray->map_y < 0
-		|| ray->map_y >= game->map.width)
+	if (ray->map_x < 0 || ray->map_x >= game->map.width || ray->map_y < 0
+		|| ray->map_y >= game->map.height)
 		return (1);
 	if (game->map.layout[ray->map_y][ray->map_x] == '1')
 		return (1);
