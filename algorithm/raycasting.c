@@ -73,7 +73,6 @@ void	raycasting(t_game *game, int x)
 	draw_wall(game, &ray, x);
 }
 
-
 int	rander_map(t_game *game)
 {
 	int	i;
@@ -84,7 +83,7 @@ int	rander_map(t_game *game)
 		raycasting(game, i);
 		i++;
 	}
-	// render_minimap(game); ms7 hada
+	render_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 	return (0);
 }

@@ -24,14 +24,14 @@ void	put_pixel(t_img *img, int x, int y, int color)
 
 int	create_trgb(int t, int r, int g, int b)
 {
-	int trgb;
+	int	trgb;
 
 	trgb = 0;
 	trgb += t << 24;
 	trgb += r << 16;
 	trgb += g << 8;
 	trgb += b;
-	return trgb;
+	return (trgb);
 }
 
 unsigned int	get_texture_pixel(t_img *tex, int x, int y)
