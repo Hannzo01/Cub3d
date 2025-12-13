@@ -83,7 +83,6 @@ int	rander_map(t_game *game)
 		raycasting(game, i);
 		i++;
 	}
-	render_minimap(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->screen.img, 0, 0);
 	return (0);
 }
