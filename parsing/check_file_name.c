@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_file_name.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:12 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/09/06 18:05:13 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:27:30 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ void	check_file_name(char *name, t_map *game)
 		print_error_and_exit("Error\nInvalid file name\n", game);
 	if (ft_strcmp(dot, ".cub") != 0)
 		print_error_and_exit("Error\nInvalid extension. Usage: .cub\n", game);
+	if (dot == name || *(dot - 1) == '/')
+		print_error_and_exit("Error\nInvalid file name\n", game);
 }

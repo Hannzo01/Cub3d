@@ -6,15 +6,15 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 18:31:42 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/12/12 23:52:17 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/13 13:06:43 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D2_H
 # define CUB3D2_H
 
-// # include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
-# include "/home/kemzouri/minilibx-linux/mlx.h"
+# include "/home/sechlahb/Desktop/minilibx-linux/mlx.h"
+// # include "/home/kemzouri/minilibx-linux/mlx.h"
 # define SCREEN_W 1080
 # define SCREEN_H 720
 

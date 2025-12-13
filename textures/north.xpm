@@ -1,43 +1,41 @@
 /* XPM */
-static char *nether_obsidian_xpm[] = {
+static char *nether_lava_xpm[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 5 1 ",
-"  c #05000A", /* Obsidian Black */
-". c #1A0033", /* Dark purple stone shading */
-"X c #5500AA", /* Crack edge */
-"o c #9900FF", /* Glowing magic */
-"+ c #D499FF", /* Hot center of crack */
+"32 32 3 1 ",
+"  c #D35400", /* Orange foncé (bords) */
+". c #F39C12", /* Orange vif (flux) */
+"X c #F1C40F", /* Jaune (coeur chaud) */
 /* pixels */
-"  .      . .   .Xo+.   .   .    ",
-".   .  .     . Xo+X  .   .   .  ",
-"  .   .XoooX.   XoX .  .   .  . ",
-" .  . Xo+++oX . .X.      .      ",
-"   . .Xo+++oX. .   .  .    . .  ",
-" .    XooooX.    .   .  .XooX . ",
-"   .  .XooX.   .   .    Xo++oX  ",
-". .  . .XX.  .   .    .Xo++++oX ",
-"    . .    .   .   . . Xoo++ooX ",
-" . .     .   .   .    . XXooXX .",
-"  .  .XoX. .   .   . . . .XX. . ",
-".   .Xo+oX.  .   .      . .. .  ",
-"   .Xo++oX. .  .   .XoooX.  . . ",
-" . .XooooX .     . .Xo++oX .    ",
-"  . .XXXX.   . .  . Xo++oX.  .  ",
-".   . .. . .     . .XXooXX. .   ",
-"  .   . .    . .   . XXXX .   . ",
-" .  .      .     . .  ..  . .   ",
-"   .  .XX..   .    . .  .    .  ",
-". .  .XooX . .   .    .   .XoX. ",
-"    .Xo++oX.   .   . .  . Xo+oX ",
-" . .Xo+++oX . .  .     . Xo++oX ",
-"  . XoooooX. .     . .  .Xo++oX ",
-".  . XoooX .   . .    . .XooooX ",
-"  . . XX. .  .     . .  .XXXX.  ",
-" . . .  .  .   . .   . . ...  . ",
-"  .  . . .   .     . .  . .  .  ",
-".   .     . .  .XX.    .      . ",
-"  .   . .    . XooX. .   . . .  ",
-" .  .    . . .Xo++oX.  .    . . ",
-"   .  . .   . Xo++oX .   . .    ",
-". .  .    .  .XXXXX.   .    . . "
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
+".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
+".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
+" ..X...   ..X...   ..X...   ..X.",
+"   . .      . .      . .      . ",
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
+".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
+".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
+" ..X...   ..X...   ..X...   ..X.",
+"   . .      . .      . .      . ",
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
+".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
+".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
+" ..X...   ..X...   ..X...   ..X.",
+"   . .      . .      . .      . ",
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
+".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
+".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
+" ..X...   ..X...   ..X...   ..X.",
+"   . .      . .      . .      . ",
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX",
+".XXXXXX. .XXXXXX. .XXXXXX. .XXXX",
+".XXXXX.. .XXXXX.. .XXXXX.. .XXXX",
+" ..X...   ..X...   ..X...   ..X.",
+"   . .      . .      . .      . ",
+"  ..XX..  ..XX..  ..XX..  ..XX..",
+" ..XXXX.. ..XXXX.. ..XXXX.. ..XX"
 };

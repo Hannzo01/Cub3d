@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:05:48 by kemzouri          #+#    #+#             */
-/*   Updated: 2025/12/12 09:35:50 by kemzouri         ###   ########.fr       */
+/*   Updated: 2025/12/13 12:09:08 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	handle_map_content(char *line, t_list **lst, t_map *game,
 	else
 	{
 		if (state[1] == 1)
-			print_error_and_exit("Error\nContent after map\n", game);
+			print_error_and_exit("Error\nInvalid file config\n", game);
 		lstadd_back(lst, f_strdup(line, game), game);
 		state[0] = 1;
 	}

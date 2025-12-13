@@ -1,44 +1,41 @@
 /* XPM */
-static char *nether_portal_xpm[] = {
+static char *nether_basalt_xpm[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 6 1 ",
-"  c #190033", /* Deep indigo */
-". c #330066", /* Dark Violet */
-"X c #4D0099", /* Purple */
-"o c #6600CC", /* Bright Purple */
-"O c #8000FF", /* Magenta */
-"+ c #B266FF", /* Hot Pink/White ish */
+"32 32 3 1 ",
+"  c #1A1A1A", /* Ombres profondes / Fissures */
+". c #333333", /* Ton moyen */
+"X c #4D4D4D", /* Éclairages */
 /* pixels */
-" . X o O + O o X .   . X o O + O",
-". X o O + O o X .   . X o O + O ",
-" X o O + O o X .   . X o O + O o",
-"X o O + O o X .   . X o O + O o ",
-" o O + O o X .   . X o O + O o X",
-"o O + O o X .   . X o O + O o X ",
-" O + O o X .   . X o O + O o X o",
-"O + O o X .   . X o O + O o X o ",
-" + O o X .   . X o O + O o X o O",
-"+ O o X .   . X o O + O o X o O ",
-" O o X .   . X o O + O o X o O +",
-"O o X .   . X o O + O o X o O + ",
-" o X .   . X o O + O o X o O + O",
-"o X .   . X o O + O o X o O + O ",
-" X .   . X o O + O o X o O + O o",
-"X .   . X o O + O o X o O + O o ",
-" .   . X o O + O o X o O + O o X",
-".   . X o O + O o X o O + O o X ",
-"   . X o O + O o X o O + O o X .",
-"  . X o O + O o X o O + O o X . ",
-" . X o O + O o X .   . X o O + O",
-". X o O + O o X .   . X o O + O ",
-" X o O + O o X .   . X o O + O o",
-"X o O + O o X .   . X o O + O o ",
-" o O + O o X .   . X o O + O o X",
-"o O + O o X .   . X o O + O o X ",
-" O + O o X .   . X o O + O o X o",
-"O + O o X .   . X o O + O o X o ",
-" + O o X .   . X o O + O o X o O",
-"+ O o X .   . X o O + O o X o O ",
-" O o X .   . X o O + O o X o O +",
-"O o X .   . X o O + O o X o O + "
+".XXXX..XXXXX...XXXX...XXXXX..XXX",
+"X...XX...XXXX.X....XXX...XXXX..X",
+"X.  ..XX..XXXX.  ..XXX..XXXXX..X",
+"XX.  ...X..XXX.  .XXXXX..XXXX..X",
+".XXX.   ..XXXXX   ...XXXX..XX.X.",
+".XXXX.   ..XXXX.    ..XXXX....X.",
+"..XXXX..  ..XXX.  .  ..XXX.  ...",
+". ..XXX..   .XX.  ..   .XX.  ..X",
+"X.  .XXX.    ...  ...    ..  .X.",
+"XX.  ..XX..    .  .XXX..    .X..",
+".XXX.  ..XXX.     ..XXXX.  ..X.X",
+"..XXX.   .XXX..   ...XXX. .XX..X",
+". ..XX..  ..XXX.   ..XX..XX...X.",
+"X.  .XXX.  ..XXX..  ....XXX..XX.",
+"XX.  ..XX.   .XXXX.    ..XXX.X..",
+".XX..  ...X.. ..XXX..  ..XX....X",
+".XXXX.   ..XX. ..XXXX. ..XX.  .X",
+"..XXXX.   .XXX...XXXX. .XX.  .X.",
+"X...XXX..  .XXX...XXX. ...  .X..",
+"XX.  .XXX. ..XXX..XXX. .  ..X.X.",
+".XX.  ..XX...XXXX.XXX.   .XX..X.",
+".XXX..  ...X..XXXXXXX.  .XX..XX.",
+"..XXXX.   ..X..XXXXX.. ..XX.X...",
+"X...XXX..  ..X..XXX.. ..XX....X.",
+"XX.  .XXX.  ..X..XX...XX...  .X.",
+".XX.  ..XX..  ...X...XX..   .X..",
+".XXX..  ..XXX...   .XX..   .X.X.",
+"..XXXX.   .XXXX.. ..XX.   .X..X.",
+"X...XXX.. ..XXXXX.XXX..  .X..XX.",
+"XX.  .XXX...XXXXXXXX.. ..XX.X...",
+".XX.  ..XXX..XXXXXX...XX...X.X..",
+".XXX.. ...XX..XXXX...XX...X...X."
 };
