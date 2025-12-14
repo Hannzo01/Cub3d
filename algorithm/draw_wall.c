@@ -29,16 +29,16 @@ static void	compute_line_params(t_ray *ray, int *line_height, int *draw_start,
 static void	select_texture_and_wallx(t_game *game, t_ray *ray, t_img **tex,
 		double *wall_x)
 {
-	if (ray->side == 0)
+	if (ray->side == 1)
 	{
-		if (ray->step_x > 0)
+		if (ray->step_y < 0)
 			*tex = &game->map.we_texture;
 		else
 			*tex = &game->map.ea_texture;
 	}
 	else
 	{
-		if (ray->step_y > 0)
+		if (ray->step_x < 0)
 			*tex = &game->map.no_texture;
 		else
 			*tex = &game->map.so_texture;
@@ -113,9 +113,9 @@ void	draw_wall(t_game *game, t_ray *ray, int x)
 	ctx.draw_end = draw_end;
 	ctx.x = x;
 	ctx.tx = (int)(ctx.pos * (double)tex->width);
-	if (ray->side == 0 && ray->dir_x > 0)
+	if (ray->side == 1 && ray->step_y > 0)
 		ctx.tx = tex->width - ctx.tx - 1;
-	if (ray->side == 1 && ray->dir_y < 0)
+	if (ray->side == 0 && ray->step_x < 0)
 		ctx.tx = tex->width - ctx.tx - 1;
 	if (ctx.tx < 0)
 		ctx.tx = 0;
